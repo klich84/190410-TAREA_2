@@ -1,0 +1,107 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+int magic_square[8][8] = {{64,2,3,61,60,6,7,57},{9,55,54,12,13,51,50,16},{17,47,46,20,21,43,42,24},{40,26,27,37,36,30,31,33},{32,34,35,29,28,38,39,25},{41,23,22,44,45,19,18,48},{49,15,14,52,53,11,10,56},{8,58,59,5,4,62,63,1}};
+	
+
+
+
+int checkMagicArray (int check_array [8][8]);
+
+int main()
+{
+	/*NO DEBE MODIFICAR NADA EN EL CODIGO DE LA FUNCION MAIN */
+	/*CUALQUIER MODIFICACION SERA PENALIZADA EN LA NOTA */
+	
+	if(checkMagicArray(magic_square))
+		cout<<"El arreglo es un cuadrado magico"<<endl;
+	else
+		cout<<"Ese arreglo NO es un cuadrado magico"<<endl;
+	
+	
+	
+}
+
+
+int checkMagicArray (int check_array [8][8])
+{
+    
+    int comp_a = 0, comp_b = 0, suma = 0;
+ 
+    for(int i = 0; i < 1; i++)  //i = filas , j = columnas
+    {
+        for(int j = 0; j < 8 ; j++)
+        {
+            suma = suma + check_array[i][j];
+        }
+    }
+    
+    for(int i = 0; i < 8; i++)  //i = filas , j = columnas
+    {
+        for(int j = 0; j < 8 ; j++)
+        {
+            comp_a = comp_a + check_array[i][j];
+        }
+        
+        if (comp_a != suma)
+            {
+                    cout<<"comp_a = "<<comp_a<<endl;
+                    cout<<"suma = "<<suma<<endl;
+                    cout<<"comp_b = "<<comp_b<<endl;
+                    
+                return 0;
+                comp_a = 0;
+            }
+            else
+            {
+                comp_a = 0;
+            }
+    }
+    
+    for(int i = 0; i < 8; i++)
+    {
+        for(int j = 0; j < 8 ; j++)
+        {
+            comp_b= comp_b + check_array[j][i];
+        }
+        
+        if (comp_b != suma)
+            {
+                    cout<<"comp_a = "<<comp_a<<endl;
+                    cout<<"suma = "<<suma<<endl;
+                    cout<<"comp_b = "<<comp_b<<endl;
+                    
+                return 0;
+                comp_b = 0;
+            }
+            else
+            {
+                comp_b = 0;
+            }
+    }
+    
+    if (comp_a == comp_b)
+    {
+        cout<<"comp_a = "<<comp_a<<endl;
+        cout<<"comp_b = "<<comp_b<<endl;
+        cout<<"suma = "<<suma<<endl;
+        return 1;
+    }
+    else 
+    {
+        cout<<"suma = "<<suma<<endl;
+        cout<<"comp_b = "<<comp_b<<endl;
+        cout<<"comp_a = "<<comp_a<<endl;
+        return 0;
+    }
+}
